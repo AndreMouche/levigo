@@ -43,6 +43,13 @@ type WriteOptions struct {
 	Opt *C.leveldb_writeoptions_t
 }
 
+
+
+func Andre_output(s string) {
+		p := C.CString(s);
+			C.andre_print(p)
+}
+
 // NewOptions allocates a new Options object.
 func NewOptions() *Options {
 	opt := C.leveldb_options_create()
