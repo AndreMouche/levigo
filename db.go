@@ -218,6 +218,20 @@ func (db *DB) Write(wo *WriteOptions, w *WriteBatch) error {
 	return nil
 }
 
+func (db *DB) WriteToLog(wo *WriteOptions, w *WriteBatch) gs error,
+     sequenceNumber uint64 (
+	var sequenceNum C.uint64_t
+	var errStr *C.char
+	C.leveldb_write_to_log(db.Ldb,wo.Opt,w.wbatch,&sequenceNum,&errStr)
+	if errStr != nil {
+	     gs := C.GoString(errStr);
+	     C.leveldb_free(unsafe.Pointer(errStr));
+	     return
+	}
+        sequenceNumber  =  (uint64)(sequenceNum)
+	return gs,sequenceNumber
+}
+
 // NewIterator returns an Iterator over the the database that uses the
 // ReadOptions given.
 //

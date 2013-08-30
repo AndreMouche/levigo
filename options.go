@@ -44,7 +44,7 @@ type WriteOptions struct {
 }
 
 
-
+/*
 func Andre_output(s string) {
 		p := C.CString(s);
 			C.andre_print(p)
@@ -54,7 +54,7 @@ func Andre_add(a,b int) int {
     pa := C.int(a)
     pb := C.int(b)
     return C.andre_add(pa,pb)
-}
+}*/
 
 // NewOptions allocates a new Options object.
 func NewOptions() *Options {
